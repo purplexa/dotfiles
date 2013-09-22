@@ -4,3 +4,5 @@ conf/vimrc,.vimrc
 lib/vim,.vim
 conf/tmux.conf,.tmux.conf
 conf/dircolors,.dircolors
+conf/Xresources,.Xdefaults
+conf/Xresources,.Xresources
