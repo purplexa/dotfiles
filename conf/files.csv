@@ -1,0 +1,6 @@
+conf/zshrc,.zshrc
+conf/emacs,.emacs
+conf/vimrc,.vimrc
+lib/vim,.vim
+conf/tmux.conf,.tmux.conf
+conf/dircolors,.dircolors

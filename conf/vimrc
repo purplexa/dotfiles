@@ -1,0 +1,159 @@
+"set langmap='z,\,w,.e,pr,yt,fy,gu,ci,ro,lp,/[,=],aa,os,ed,uf,ig,dh,hj,tk,nl,s:,-',\\;q,qx,jc,kv,xb,bn,mm,w\,,v.,z/,[-,]=,\"Z,<W,>E,PR,YT,FY,GU,CI,RO,LP,?{,+},AA,OS,ED,UF,IG,DH,HJ,TK,NL,S\\;,_\",:Q,QX,JC,KV,XB,BN,MM,W<,V>,Z?
+
+"Dvorak it!
+"no d h
+"no h j
+"no t k
+"no n l
+"no s :
+"no S :
+"
+"no j d
+"no l n
+"no L N
+"no k t
+
+set langmap=dh,hj,tk,nl,s:,Ss,:S,jd,ln,LN,kt
+"Added benefits
+no - $
+no _ ^
+no H 8<Down>
+no T 8<Up>
+
+set nocompatible
+set background=light
+set t_Co=256
+syntax on
+colorscheme solarized
+set number
+set ff=unix
+set enc=utf-8
+set showmatch
+set ai
+set si
+set softtabstop=2
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set list
+set listchars=tab:>-,trail:-
+set nowrap
+set showmode
+set showcmd
+set ignorecase
+set smartcase
+set incsearch
+set whichwrap=h,l,~,[,]
+set backspace=eol,start,indent
+set foldenable
+set foldignore-=#
+set mouse=a
+set paste
+set hidden
+set history=1000
+set title
+set scrolloff=3
+set shortmess=atI
+set autoread
+set confirm
+set mousehide
+set fdm=indent
+
+set backupdir=~/.vim/backup//,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim/backup//,~/.tmp,~/tmp,/var/tmp,/tmp
+
+set wildmenu
+set wildmode=longest:full,full
+set wildignorecase
+
+set grepprg=ack
+set grepformat=%f:%l:%m
+
+set laststatus=2
+set statusline=%F%m%r%h%w\ FORMAT=%{&ff}\ TYPE=%Y\ ASCII=\%03.3b\ HEX=\%02.2B\ POS=%04l,%04v\ [%p%%]\ LEN=%L
+
+let g:tex_flavor = "latex"
+set runtimepath=~/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,~/.vim/after
+
+"begin gvim stuff
+"set guifont=Monaco\ 10
+"set guifont=Inconsolata\ 10
+set guifont=Ubuntu\ Mono\ 12
+"Terminus\ 8
+set guioptions-=m
+set guioptions-=T
+set guioptions-=r
+set guioptions-=L
+set guioptions+=c
+set showtabline=0
+"end gvim stuff
+
+filetype on
+autocmd BufNewFile,BufRead *.txt set filetype=human
+autocmd BufNewFile,BufRead *.inc,*.module,*.install set filetype=php
+
+autocmd Filetype perl set smartindent foldignore-=#
+autocmd Filetype css set smartindent
+autocmd FileType mail,human set formatoptions+=t textwidth=72
+autocmd FileType html set formatoptions+=tl matchpairs+=<:>
+autocmd FileType make set noexpandtab shiftwidth=8
+autocmd FileType tex set smartindent wrap spell textwidth=72
+
+filetype plugin indent on
+
+"begin autocomplete
+"autocmd FileType python set omnifunc=pythoncomplete#Complete
+"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
+"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
+"autocmd FileType c set omnifunc=ccomplete#Complete
+
+" Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
+" Drupal
+call pathogen#infect('/home/ryan/.drush/vimrc/bundle/{}')
+call pathogen#infect('/home/ryan/.vim/bundle/{}')
+
+set dict +=~/.vim/dictionaries/drupal6.dict
+set cpt +=k
+"end autocomplete
+
+"let mapleader="\\"
+
+noremap Y y$
+
+nnoremap ' `
+nnoremap ` '
+
+"runtime macros/matchit.vim
+
+"map <Right> :bnext<CR>
+"imap <Right> <ESC>:bnext<CR>
+"map <Left> :bprev<CR>
+"imap <Left> <ESC>:bprev<CR>
+"map <Del> :bd<CR>
+
+"map <F5> :set fdl=20<CR>vi<CR>
+"map <C-F5> :set fdl=0<CR>vi<CR>
+"imap <F5> <ESC>:set fdl=5<CR>vi<CR>a
+"imap <C-F5> <ESC>:set fdl=0<CR>vi<CR>a
+"
+"map <F8> :!acpi<CR>vi
+"imap <F8> :!acpi<CR>vi
+"
+"map <F9> :w<cr>:! prove -v -I. -Ilib -It %<CR>vi
+"imap <F9> <ESC>:w<cr>:! prove -v -I. -Ilib -It %<CR>vi
+"
+"map <F10> :! date<CR>vi
+"imap <F10> <ESC>:! date <CR>vi
+"
+""map <F11> :perldo print m,^sub.*$,m<CR>
+"
+"map <silent> <C-q> :mksession! ~/.vim/.session<CR>vi
+"map <silent> <C-s> :source ~/.vim/.session<CR>vi
+
+"nmap <leader>s yiw/^\(sub\<bar>function\)\s\+<C-R>"<CR>

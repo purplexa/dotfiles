@@ -1,0 +1,19 @@
+#!/bin/zsh
+zmodload zsh/mapfile
+
+echo "export DOTSDIR=$PWD" > conf/zshrc
+echo '. $DOTSDIR/lib/zsh/main' >> conf/zshrc
+
+FNAME=$PWD/conf/files.csv
+FILELIST=( "${(f)mapfile[$FNAME]}" )
+
+for i in $FILELIST; do
+  FILES=("${(s/,/)i}")
+  if [[ -h $HOME/$FILES[2] ]]; then
+    ln -sfn $PWD/$FILES[1] $HOME/$FILES[2]
+  elif [[ -f $HOME/$FILES[2] ]]; then
+    echo "ERROR: File" $FILES[2] "exists!"
+  else
+    ln -sfn $PWD/$FILES[1] $HOME/$FILES[2]
+  fi
+done
