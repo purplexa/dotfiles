@@ -1,0 +1,48 @@
+# vim: syntax=zsh
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# prompt stuff
+
+#function precmd {
+    #THEBATTSTAT=`perl -e '\`acpi\` =~ m/.*?(\d{1,3}%).*/; print "$1%\n"'`
+    #THEBATTSTAT=`acpi | sed -n -e 's/.*?(\d{1,3}%).*/$1/p'
+    #THEBATTSTAT=''
+#}
+
+function setprompt {
+    # See if we can use colors
+    autoload colors zsh/terminfo
+    if [[ "$terminfo[colors]" -ge 8 ]]; then
+        colors
+    fi
+    for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
+        #eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
+        eval PR_$color='%{$fg[${(L)color}]%}'
+        eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
+        (( count = $count + 1 ))
+    done
+    PR_NO_COLOUR="%{$terminfo[sgr0]%}"
+
+    if [[ $HOST == 'kavula' ]]; then
+        if [[ $USER == 'ryan' ]]; then
+            THENAME=''
+        else
+            THENAME="$PR_CYAN$USER "
+        fi
+    else
+        if [[ $USER == 'ryan' ]]; then
+            THENAME="$PR_MAGENTA$HOST "
+        else
+            THENAME="$PR_CYAN$USER$PR_GREEN@$PR_MAGENTA$HOST "
+        fi
+    fi
+    #THEBATT="$PR_RED$THEBATTSTAT$PR_BLUE|"
+    THEBATT=''
+    #THENAME="$PR_CYAN$USER$PR_GREEN@$PR_MAGENTA$HOST "
+
+    PROMPT="$PR_BLUE|$THENAME$PR_GREEN%#$PR_BLUE> $PR_NO_COLOUR"
+    RPROMPT="$PR_BLUE<$PR_YELLOW%~$PR_BLUE|$THEBATT$PR_NO_COLOUR"
+    PS2="$PR_GREEN($PR_MAGENTA%_$PR_GREEN)$PR_BLUE> $PR_NO_COLOUR"
+}
+
+setprompt

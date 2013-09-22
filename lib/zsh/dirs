@@ -1,0 +1,8 @@
+# vim: syntax=zsh
+# General
+hash -d dwn=~/Downloads
+hash -d dev=~/Development
+
+# Projects
+hash -d code.org=~/Development/code.org/drupal/turnip
+hash -d pps-rp=~/Development/Regional-Programs/app

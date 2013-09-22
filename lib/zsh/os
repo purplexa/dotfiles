@@ -1,0 +1,6 @@
+# vim: syntax=zsh
+
+# work aliases
+alias ostun='ssh -f -N -L localhost:6667:gargravarr:6667 gargravarr'
+
+

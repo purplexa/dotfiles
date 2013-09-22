@@ -1,0 +1,76 @@
+# vim: syntax=zsh
+setopt append_history
+setopt inc_append_history
+setopt share_history
+setopt extended_history
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_save_no_dups
+setopt hist_find_no_dups
+
+setopt auto_cd
+setopt auto_list
+setopt auto_name_dirs
+setopt auto_pushd
+# correctall is getting annoying
+# setopt correctall
+setopt c_bases
+setopt glob_complete
+setopt interactivecomments
+setopt list_packed
+setopt magic_equal_subst
+setopt multios
+setopt noclobber
+setopt nonomatch
+setopt no_flow_control
+setopt octal_zeroes
+setopt rc_expand_param
+setopt rm_star_wait
+
+HISTFILE=$DOTSDIR/lib/zsh/history
+HISTSIZE=32767
+LISTMAX=0
+LOGCHECK=300
+REPORTTIME=60
+SAVEHIST=32767
+
+VISUAL='vim'
+EDITOR='vim'
+SVN_EDITOR='vim'
+GIT_EDITOR='vim -u ~/.vimrc'
+MUTT_EDITOR='vim'
+PAGER='most'
+
+export EDITOR='vim'
+
+# by default: export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
+# we take out the slash, period, angle brackets, dash here.
+export WORDCHARS='*?_[]~=&;!#$%^(){}'
+
+# fix Firefox fonts
+export MOZ_DISABLE_PANGO=1
+
+MALLOC_CHECK_=1
+
+eval `dircolors ~/.dircolors`
+
+zmodload -a zsh/stat stat
+zmodload -a zsh/zpty zpty
+zmodload -a zsh/zprof zprof
+zmodload -ap zsh/mapfile mapfile
+
+. $DOTSDIR/lib/zsh/completion
+. $DOTSDIR/lib/zsh/bind
+. $DOTSDIR/lib/zsh/alias
+. $DOTSDIR/lib/zsh/dirs
+. $DOTSDIR/lib/zsh/functions
+. $DOTSDIR/lib/zsh/os
+. $DOTSDIR/lib/zsh/prompt
+. $DOTSDIR/lib/zsh/startup
+#. ~/Development/drush-zsh/drush.complete.zsh
+
+fpath=($DOTSDIR/lib/zsh/completion.d $fpath)
+autoload -U compinit
+compinit -i
+
+#eval $(keychain --eval --agents ssh -Q --quiet id_rsa 2011_ryan_id_rsa)
