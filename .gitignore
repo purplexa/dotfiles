@@ -1,3 +1,5 @@
-private
 local.*
-conf/schema.yml
+conf/zshrc
+conf/emacs
+lib/zsh/history
+lib/zsh/history*

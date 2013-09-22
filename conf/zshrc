@@ -1,2 +1,0 @@
-export DOTSDIR=/home/ryan/dotfiles
-. $DOTSDIR/lib/zsh/main
