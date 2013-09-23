@@ -48,7 +48,6 @@ set backspace=eol,start,indent
 set foldenable
 set foldignore-=#
 set mouse=a
-set paste
 set hidden
 set history=1000
 set title
