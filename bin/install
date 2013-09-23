@@ -4,6 +4,9 @@ zmodload zsh/mapfile
 echo "export DOTSDIR=$PWD" > conf/zshrc
 echo '. $DOTSDIR/lib/zsh/main' >> conf/zshrc
 
+echo "(defconst user-init-dir \"$PWD/lib/emacs\")" > conf/emacs
+echo "(load-file \"$PWD/lib/emacs/init.el\")" >> conf/emacs
+
 FNAME=$PWD/conf/files.csv
 FILELIST=( "${(f)mapfile[$FNAME]}" )
 

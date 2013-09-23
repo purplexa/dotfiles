@@ -1,0 +1,1 @@
+../contrib/emacs-solarized/color-theme-solarized-pkg.el
