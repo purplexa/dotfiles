@@ -1,3 +1,0 @@
-[submodule "lib/zsh"]
-	path = lib/zsh
-	url = git@github.com:ghyspran/oh-my-zsh.git
