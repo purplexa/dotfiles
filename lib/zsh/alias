@@ -41,7 +41,6 @@ alias mkdir='nocorrect mkdir'
 # alias cd='cool-cd'
 alias sz='source ~/.zshrc'
 alias ez="vim $DOTFILES/lib/zsh/*(.)"
-alias ack='ack-grep'
 alias b='acpi'
 alias x='atool -x'
 alias mp='mplayer'

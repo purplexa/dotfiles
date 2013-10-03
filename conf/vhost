@@ -1,0 +1,12 @@
+NameVirtualHost *:80
+
+<VirtualHost *:80>
+  ServerName PROJECTNAME.dev
+  DocumentRoot /var/www/PROJECTNAME
+  <Directory /var/www/PROJECTNAME>
+    Options Indexes FollowSymLinks MultiViews
+    AllowOverride All
+    Order allow,deny
+    allow from all
+  </Directory>
+</VirtualHost>
