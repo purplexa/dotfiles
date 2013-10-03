@@ -1,0 +1,32 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/home/ryan/dotfiles/lib/" . "emacs/")
+ ("/home/ryan/dotfiles/" . "lib/")
+ ("/home/ryan/" . "dotfiles/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ 
+)
+
+;; ----- ido-work-file-list -----
+(
+ 
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/home/ryan/" (21057 821 205285 791000) ".thunderbird/" ".goutputstream-J86L3W" ".viper" "examples.desktop" ".tmux.conf" ".compiz/" ".xinitrc" ".subversion/" ".thumbnails/" ".gtk-bookmarks" ".xsession-errors" ".ssh/" ".gnome2/" ".profile" ".local/" ".vimrc" "Pictures/" ".mission-control/" ".emacs" ".VirtualBox/" ".gitconfig" "Public/" ".dircolors.old" ".macromedia/" ".vim/" ".pulse/" ".gem/" ".gksu.lock" "dotfiles/" "bin/" ".screenrc" ".pulse-cookie" ".zshrc" "Templates/" ".fontconfig/" "Desktop/" ".pki/" ".bash_logout" ".dotfiles/" ".config/" ".aptitude/" ".pearrc" ".Xauthority" "../" ".goutputstream-83P92W" ".bashrc" ".fonts.conf" ".zcompdump" "VirtualBox VMs/" ".viminfo" ".zsh/" ".gnome2_private/" ".cpan/" ".bash_history" ".drush/" ".emacs.d/" "Videos/" ".vagrant.d/" ".Xresources" "C:\\nppdf32Log\\debuglog.txt" "Downloads/" ".bin/" ".mozilla/" "Ubuntu One/" ".dbus/" ".gvfs/" ".lesshst" ".ackrc" "Music/" "./" ".ido.last" ".adobe/" ".composer/" ".goutputstream-T85Q3W" ".dmrc" ".ido.last~" "Development/" ".ICEauthority" ".lastpass/" ".compiz-1/" "Documents/" ".mysql_history" ".zshrc.old" ".gconf/" ".gstreamer-0.10/" ".dircolors" ".xsession-errors.old" ".cache/" ".Xdefaults")
+
+ ("/home/ryan/dotfiles/lib/emacs/" (21056 63556 377219 222000) "init.el" "contrib/" "bindings.el" "config/" "../" "autosaves/" "themes/" "./" "backups/" "functions.el")
+
+ ("/home/ryan/dotfiles/lib/" (21055 46004 429295 287000) "../" "emacs/" "vim/" "zsh/" "./")
+
+ ("/home/ryan/dotfiles/" (21055 48192 113347 281000) "conf/" "lib/" "bin/" ".git/" "../" ".gitmodules" ".gitignore" "README.md" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t

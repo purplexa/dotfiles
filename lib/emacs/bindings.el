@@ -1,14 +1,18 @@
 ;; Evil keymappings ;;
+;;; Unbind problem keys
+(define-key evil-normal-state-map "d" nil)
+(define-key evil-normal-state-map "D" nil)
+(define-key evil-motion-state-map "j" nil)
+(define-key evil-motion-state-map "e" nil)
+
 ;;; New mappings
 (define-key evil-normal-state-map "s" 'execute-extended-command)
 (define-key evil-normal-state-map ";" 'execute-extended-command)
 (define-key evil-normal-state-map "S" 'evil-ex)
 (define-key evil-motion-state-map "-" 'evil-end-of-line)
-
-;;; Unbind problem keys
-(define-key evil-normal-state-map "d" nil)
-(define-key evil-normal-state-map "D" nil)
-(define-key evil-motion-state-map "j" nil)
+(define-key evil-normal-state-map "eff" 'find-file)
+(define-key evil-normal-state-map "ebw" 'save-buffer)
+(define-key evil-normal-state-map "ebs" 'switch-to-buffer)
 
 ;;; Rebind for Dvorak
 (define-key evil-normal-state-map "j" 'evil-delete)
@@ -44,3 +48,7 @@
 (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
 (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+
+;; Non-Evil keymappings ;;
+;;; RET indents the newly inserted line
+(define-key global-map (kbd "RET") 'newline-and-indent)
