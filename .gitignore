@@ -1,4 +1,5 @@
 local.*
+*.local
 conf/zshrc
 conf/emacs
 lib/zsh/history
