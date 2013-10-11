@@ -1,1 +1,0 @@
-../contrib/emacs-solarized/solarized-dark-theme.el

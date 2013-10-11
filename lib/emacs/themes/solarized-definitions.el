@@ -1,1 +1,0 @@
-../contrib/emacs-solarized/solarized-definitions.el
