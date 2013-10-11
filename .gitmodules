@@ -1,6 +1,0 @@
-[submodule "lib/emacs/contrib/evil"]
-	path = lib/emacs/contrib/evil
-	url = git://gitorious.org/evil/evil.git
-[submodule "lib/emacs/contrib/emacs-solarized"]
-	path = lib/emacs/contrib/emacs-solarized
-	url = git@github.com:sellout/emacs-color-theme-solarized.git
