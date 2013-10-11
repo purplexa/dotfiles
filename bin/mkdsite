@@ -53,5 +53,5 @@ else
   fi
   sed "s/PROJECTNAME/$projname/" < $DOTSDIR/conf/default.settings.local.php > shared/settings.local.php
   echo "Setting up shell aliases..."
-  echo "hash -d $projname=`pwd`" >> $DOTSDIR/lib/zsh/dirs
+  echo "hash -d $projname=`pwd`" >> $DOTSDIR/lib/zsh/dirs.local
 fi
