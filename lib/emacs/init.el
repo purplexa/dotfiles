@@ -16,39 +16,101 @@
 ;; Load packages
 (load-user-file "custompackages.el")
 
+;; Magic command repetition
+(load-user-file "contrib/repeatable.el")
+
 ;; Use Evil modal editing
-(require 'evil)
-(evil-mode 1)
+;; (require 'evil)
+;; (evil-mode 1)
+
+;; Use God Mode
+(require 'god-mode)
+(god-mode)
+(add-hook 'god-mode-enabled-hook 'god-mode-update-cursor)
+(add-hook 'god-mode-disabled-hook 'god-mode-update-cursor)
 
 ;; Use Ido Mode
-(setq ido-enable-flex-matching t)
+(require 'flx-ido)
 (setq ido-everywhere t)
 (setq ido-save-directory-list-file (expand-file-name "cache/ido.last" user-init-dir))
 (ido-mode 1)
+(ido-everywhere 1)
+(flx-ido-mode 1)
+;; disable ido faces to see flx highlights.
+(setq ido-use-faces nil)
 
 ;; Use Auto Complete Mode
 ;(add-to-list 'ac-dictionary-directories (expand-file-name "ac-dict" user-init-dir))
 (require 'auto-complete-config)
 (ac-config-default)
+(add-hook 'conf-mode-hook 'auto-complete-mode)
+
+;; Use Projectile
+(projectile-global-mode t)
+
+;; Highlight matching symbols
+(require 'highlight-symbol)
+(add-hook 'find-file-hook 'highlight-symbol-mode)
+(setq highlight-symbol-idle-delay .2)
+
+;; Use arrow keys for navigation
+(windmove-default-keybindings)
+
+;; Visual window selection
+(require 'switch-window)
+
+;; Select increasingly large objects
+(require 'expand-region)
+
+;; Save minibuffer history between sessions
+(savehist-mode)
+(setq history-length 1000)
+
+;; Recall recently opened files
+(recentf-mode)
+(setq recentf-max-saved-items 250)
+
+;; Save undo history when reverting buffer
+(setq revert-buffer-function 'revert-buffer-keep-history)
+
+;; Use YASnippet
+(require 'yasnippet)
+(yas/initialize)
+;(setq yas/root-directory '((expand-file-name "yas" user-init-dir)
+;                      (expand-file-name "elpa/yasnippet-20131010.2/snippets" user-init-dir)))
+;(mapc 'yas/load-directory yas/root-directory)
 
 ;; Use smooth scrolling
 (require 'smooth-scrolling)
 
 ;; Use Powerline for fancy modeline
 (require 'powerline)
-(powerline-default-evil-theme)
+(powerline-default-theme)
+
+;; Configure whitespace-mode
+(require 'whitespace)
+(setq whitespace-style '(face tabs trailing lines-tail))
+(set-face-attribute 'whitespace-line nil
+                    :foreground 'unspecified
+                    :background "#efefef")
+(global-whitespace-mode 1)
 
 ;; Setup emacs for Drupal development
 (require 'web-mode)
+(require 'drupal-mode)
 
 ;;; Setup Drupal file associations
 (add-to-list 'auto-mode-alist
              '("\\.\\(php\\|inc\\|module\\|test\\|install\\|theme\\)$" . php-mode))
 (add-to-list 'auto-mode-alist
              '("\\.info" . conf-windows-mode))
+(add-to-list 'auto-mode-alist
+             '("\\.make" . drush-make-mode))
+(add-to-list 'auto-mode-alist
+             '("\\.js" . js2-mode))
 
-;; Use Solarized theme
-(load-theme 'solarized-light t)
+;; Use Leuven theme
+(load-theme 'leuven t)
 
 ;; Use ibuffer mode
 (defalias 'list-buffers 'ibuffer)
@@ -56,22 +118,39 @@
 ;; Highlight matching parens
 (show-paren-mode 1)
 
+;; Color parentheses based on nesting
+(require 'rainbow-delimiters)
+(global-rainbow-delimiters-mode)
+
 ;; Various configurations
 (set-default-font "Ubuntu Mono-12")
-(custom-set-variables
- '(font-lock-maximum-decoration t)        ; show maximum possible highlighting
- '(column-number-mode t)                  ; show column number in modeline
- '(scroll-bar-mode nil)                   ; hide scrollbar
- '(tool-bar-mode nil)                     ; hide toolbar
- '(menu-bar-mode nil)                     ; hide menubar
- '(inhibit-startup-screen t)              ; don't display the startup screen
- '(initial-scratch-message "")            ; don't show anything in the scratch buffer
- '(vc-handled-backends nil)               ; disable version control
- '(show-paren-delay 0)                    ; highlight matching parens immediately
- '(php-mode-coding-style (quote drupal))  ; use drupal coding standards in php-mode
- '(make-backup-files nil))                ; don't make backup files
+(add-to-list 'default-frame-alist
+             '(font . "Ubuntu Mono-12"))
+(setq frame-title-format '("" invocation-name "@" system-name " : %b"))
 
-(setq-default indent-tabs-mode nil) ; disable inserting tab characters
+(tool-bar-mode -1)                    ; hide toolbar
+(menu-bar-mode -1)                    ; hide menubar
+
+(setq-default font-lock-maximum-decoration t)       ; show maximum possible highlighting
+(setq-default column-number-mode t)                 ; show column number in modeline
+(setq-default scroll-bar-mode nil)                  ; hide scrollbar
+
+(setq-default inhibit-startup-screen t)             ; don't display the startup screen
+(setq-default initial-scratch-message "")           ; don't show anything in the scratch buffer
+(setq-default vc-handled-backends nil)              ; disable version control
+(setq-default show-paren-delay 0)                   ; highlight matching parens immediately
+(setq-default make-backup-files nil)                ; don't make backup files
+(setq-default require-final-newline t)              ; require newline at end of file
+(setq-default php-mode-coding-style 'drupal)        ; use drupal coding standards in php-mode
+
+(setq-default indent-tabs-mode nil)                 ; disable inserting tab characters
+(setq-default sh-basic-offset 2)                    ; indent shell scripts two spaces
+(setq-default css-indent-offset 2)                  ; indent CSS files two spaces
+(setq-default js2-basic-offset 2)                   ; indent JS files two spaces
+(setq-default js2-strict-missing-semi-warning nil)  ; allow missing semicolons
+(setq-default apache-indent-level 2)                ; indent apache configs two spaces
+(setq tab-stop-list (number-sequence 2 120 2))      ; put tab-stops every two characters
+(setq-default scss-compile-at-save nil)             ; don't compile sass for me
 
 ;; Put autosave/backup files in one place
 ;(defvar user-backup-directory (expand-file-name "backups" user-init-dir))
@@ -81,6 +160,10 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(concat (expand-file-name "autosaves" user-init-dir) "/\\1") t)))
 
+;; Make distinct buffer names useful
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward)
+
 ;; Load extra config files
-(load-user-file "bindings.el")
 (load-user-file "drupal.el")
+(load-user-file "bindings.el")

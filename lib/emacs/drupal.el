@@ -18,3 +18,4 @@
 (add-to-list 'flymake-allowed-file-name-masks '("\\.engine$" flymake-php-init))
 
 (add-hook 'php-mode-hook (lambda () (flymake-mode 1)))
+(add-hook 'php-mode-hook 'drupal-mode)

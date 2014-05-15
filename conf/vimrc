@@ -117,6 +117,9 @@ call pathogen#helptags()
 call pathogen#infect('/home/ryan/.drush/vimrc/bundle/{}')
 call pathogen#infect('/home/ryan/.vim/bundle/{}')
 
+" Markdown
+let g:markdown_fenced_languages = ['css', 'erb=eruby', 'javascript', 'js=javascript', 'json=javascript', 'ruby', 'sass', 'xml']
+
 set dict +=~/.vim/dictionaries/drupal6.dict
 set cpt +=k
 "end autocomplete

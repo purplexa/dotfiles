@@ -153,6 +153,7 @@ urxvt*keysym.S-Next:    ^[[6;2~
 urxvt*font:             xft:ubuntu\ mono:antialias=true:hinting=true:pixelsize=16
 urxvt*boldFont:         xft:ubuntu\ mono:antialias=true:hinting=true:pixelsize=16
 urxvt.iconFile:         /usr/share/icons/Faience/apps/scalable/terminal.svg
+urxvt.intensityStyles:  false
 
 Emacs*toolbar:		0
 Emacs*menubar:		0

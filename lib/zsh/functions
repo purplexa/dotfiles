@@ -1,4 +1,4 @@
-# vim: syntax=zsh fdm=indent
+# -*- mode: sh -*-
 function folsym {
     if [[ -e $1 || -h $1 ]]; then
         file=$1
@@ -61,6 +61,10 @@ function wtf {
 
 function WTF {
   echo "What the FUCK, $1?!"
+}
+
+function crush {
+  drush $1 cc all
 }
 
 function dapi7 {

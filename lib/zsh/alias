@@ -1,4 +1,4 @@
-# vim: syntax=zsh
+# -*- mode: sh -*-
 
 # ls aliases
 alias ls='echo "\e[35;1mCurrent dir:$terminfo[sgr0]\e[36m" `pwd`$terminfo[sgr0]; ls -CF --color=auto'
@@ -31,11 +31,16 @@ alias drd='drush dl --yes'
 alias dre='drush en --yes'
 alias dru='drush updb'
 alias druy='drush updb --yes'
+alias dr7='/usr/local/share/drush-7/drush'
 
 # nocorrect
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
 alias mkdir='nocorrect mkdir'
+
+# emacs
+alias ec='emacsclient -n'
+alias ecn='emacsclient -nc'
 
 # various aliases
 # alias cd='cool-cd'
@@ -45,4 +50,3 @@ alias b='acpi'
 alias x='atool -x'
 alias mp='mplayer'
 alias o='mimeopen'
-

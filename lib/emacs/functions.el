@@ -60,3 +60,51 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                      (concat (powerline-render lhs)
                              (powerline-fill face2 (powerline-width rhs))
                              (powerline-render rhs)))))))
+
+(defun beginning-of-line-or-indentation ()
+  "move to beginning of line, or indentation"
+  (interactive)
+  (if (bolp)
+      (back-to-indentation)
+    (beginning-of-line)))
+
+(defun select-current-line ()
+  "Select the current line"
+  (interactive)
+  (end-of-line) ; move to end of line
+  (set-mark (line-beginning-position)))
+
+(defun god-mode-update-cursor ()
+  (setq cursor-type (if (or god-local-mode buffer-read-only)
+                        'box
+                      'bar)))
+
+;; emacs doesn't actually save undo history with revert-buffer
+;; see http://lists.gnu.org/archive/html/bug-gnu-emacs/2011-04/msg00151.html
+;; fix that.
+(defun revert-buffer-keep-history (&optional IGNORE-AUTO NOCONFIRM PRESERVE-MODES)
+  (interactive)
+
+  ;; tell Emacs the modtime is fine, so we can edit the buffer
+  (clear-visited-file-modtime)
+
+  ;; insert the current contents of the file on disk
+  (widen)
+  (delete-region (point-min) (point-max))
+  (insert-file-contents (buffer-file-name))
+
+  ;; mark the buffer as not modified
+  (not-modified)
+  (set-visited-file-modtime))
+
+;; Opening a file in Geben is way more complicated than it needs to be.
+(defun geben-find-buffer (arg buf)
+  (interactive "bBuffer to load: ")
+  (geben-with-current-session session
+    (geben-open-fill (geben-source-fileuri session (buffer-file-name buf)))))
+
+;; Auto align region on =.
+(defun align-region-on-equals (beg end)
+  "Align the region on =."
+  (interactive "r")
+  (align-regexp beg end "="))

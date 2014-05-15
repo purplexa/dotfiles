@@ -1,4 +1,4 @@
-# vim: syntax=zsh
+# -*- mode: sh -*-
 setopt append_history
 setopt inc_append_history
 setopt share_history
@@ -34,14 +34,14 @@ LOGCHECK=300
 REPORTTIME=60
 SAVEHIST=32767
 
-VISUAL='vim'
-EDITOR='vim'
-SVN_EDITOR='vim'
-GIT_EDITOR='vim -u ~/.vimrc'
-MUTT_EDITOR='vim'
+VISUAL='emacsclient -c'
+EDITOR='emacsclient -c'
+SVN_EDITOR='emacsclient -c'
+GIT_EDITOR='emacsclient -c'
+MUTT_EDITOR='emacsclient -c'
 PAGER='most'
 
-export EDITOR='vim'
+export EDITOR='emacsclient -c'
 
 # by default: export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
 # we take out the slash, period, angle brackets, dash here.
@@ -67,9 +67,13 @@ zmodload -ap zsh/mapfile mapfile
 . $DOTSDIR/lib/zsh/os
 . $DOTSDIR/lib/zsh/prompt
 . $DOTSDIR/lib/zsh/startup
-#. ~/Development/drush-zsh/drush.complete.zsh
+. ~/Development/drush-zsh/drush.complete.zsh
 
-fpath=($DOTSDIR/lib/zsh/completion.d $fpath)
+# rbenv
+eval "$(rbenv init -)"
+
+#fpath=($DOTSDIR/lib/zsh/completion.d $fpath)
+fpath=(/usr/local/share/zsh-completions/src $fpath)
 autoload -U compinit
 compinit -i
 
