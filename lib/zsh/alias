@@ -2,9 +2,10 @@
 
 # ls aliases
 alias ls='echo "\e[35;1mCurrent dir:$terminfo[sgr0]\e[36m" `pwd`$terminfo[sgr0]; ls -CF --color=auto'
+alias ll='ls -CFlh'
 alias a='ls -CF'
 alias aa='ls -CFa'
-alias ao='ls -CFlh'
+alias ao='ll'
 alias ap='ls -CF --color=none'
 
 # pacman/packer aliases
