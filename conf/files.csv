@@ -1,6 +1,7 @@
 conf/ackrc,.ackrc
 conf/bash_prompt,.bash_prompt
 conf/bashrc,.bashrc
+conf/gitconfig,.gitconfig
 conf/zshrc,.zshrc
 conf/emacs,.emacs
 conf/vimrc,.vimrc
