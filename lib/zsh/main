@@ -26,6 +26,7 @@ setopt no_flow_control
 setopt octal_zeroes
 setopt rc_expand_param
 setopt rm_star_wait
+setopt prompt_subst
 
 HISTFILE=$DOTSDIR/lib/zsh/history
 HISTSIZE=32767
@@ -76,5 +77,7 @@ eval "$(rbenv init -)"
 fpath=(/usr/local/share/zsh-completions/src $fpath)
 autoload -U compinit
 compinit -i
+
+export PATH=$PATH:$HOME/.composer/vendor/bin
 
 #eval $(keychain --eval --agents ssh -Q --quiet id_rsa 2011_ryan_id_rsa)
