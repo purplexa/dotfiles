@@ -13,7 +13,7 @@
 "no L N
 "no k t
 
-set langmap=dh,hj,tk,nl,s:,Ss,:S,jd,ln,LN,kt
+"set langmap=dh,hj,tk,nl,s:,Ss,:S,jd,ln,LN,kt
 "Added benefits
 no - $
 no _ ^
