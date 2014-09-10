@@ -1,6 +1,7 @@
-local.*
+  local.*
 *.local
 conf/zshrc
 conf/emacs
+lib/emacssession.*
 lib/zsh/history
 lib/zsh/history*
