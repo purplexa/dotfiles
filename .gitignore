@@ -3,5 +3,10 @@
 conf/zshrc
 conf/emacs
 lib/emacssession.*
+lib/emacs/ac-comphist.dat
+lib/emacs/eshell
+lib/emacs/history
+lib/emacs/projectile-bookmarks.eld
+lib/vim/bundle/fugitive/.netrwhist
 lib/zsh/history
 lib/zsh/history*
