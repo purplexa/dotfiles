@@ -90,9 +90,9 @@
 ;; Configure whitespace-mode
 (require 'whitespace)
 (setq whitespace-style '(face tabs trailing lines-tail))
-(set-face-attribute 'whitespace-line nil
-                    :foreground 'unspecified
-                    :background "#efefef")
+;; (set-face-attribute 'whitespace-line nil
+;;                     :foreground 'unspecified
+;;                     :background "#efefef")
 (global-whitespace-mode 1)
 
 ;; Setup emacs for Drupal development
