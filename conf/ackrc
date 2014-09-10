@@ -1,0 +1,4 @@
+--type-set=drupal=.php,.inc,.module,.install,.info,.engine,.profile
+--type-set=sass=.scss,.sass
+--type-set=lyx=.lyx
+--type-set=php:firstlinematch:/<\?php/
