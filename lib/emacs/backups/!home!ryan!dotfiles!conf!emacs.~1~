@@ -1,2 +1,0 @@
-(defconst user-init-dir "/home/ryan/dotfiles/lib/emacs")
-(load-file "/home/ryan/dotfiles/lib/emacs/init.el")
