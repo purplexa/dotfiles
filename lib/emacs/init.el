@@ -20,14 +20,16 @@
 (load-user-file "contrib/repeatable.el")
 
 ;; Use Evil modal editing
-;; (require 'evil)
-;; (evil-mode 1)
+(require 'evil)
+(evil-mode 1)
+(evil-set-initial-state 'git-commit-mode 'insert)
+(global-undo-tree-mode nil)
 
 ;; Use God Mode
-(require 'god-mode)
-(god-mode)
-(add-hook 'god-mode-enabled-hook 'god-mode-update-cursor)
-(add-hook 'god-mode-disabled-hook 'god-mode-update-cursor)
+;; (require 'god-mode)
+;; (god-mode)
+;; (add-hook 'god-mode-enabled-hook 'god-mode-update-cursor)
+;; (add-hook 'god-mode-disabled-hook 'god-mode-update-cursor)
 
 ;; Use Ido Mode
 (require 'flx-ido)
