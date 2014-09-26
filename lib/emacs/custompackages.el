@@ -1,8 +1,7 @@
 ;; Packages
 (require 'package)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/")
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
+             '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
 
 (defvar user-custom-packages
@@ -16,7 +15,7 @@
                 php-mode powerline projectile puppet-mode
                 rainbow-delimiters scss-mode smex smooth-scrolling
                 solarized-theme ssh-config-mode switch-window
-                undo-tree web-mode wrap-region yaml-mode yasnippet))
+                web-mode wrap-region yaml-mode yasnippet))
 
 (defun custom-packages-installed ()
   (loop for p in user-custom-packages
