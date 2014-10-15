@@ -2,3 +2,4 @@
 --type-set=sass=.scss,.sass
 --type-set=lyx=.lyx
 --type-set=php:firstlinematch:/<\?php/
+--type-set=puppet=.pp
