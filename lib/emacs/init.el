@@ -10,6 +10,10 @@
 ;; Instead of ~/.emacs.d, use this directory
 (setq user-emacs-directory user-init-dir)
 
+;; Listen to $PATH
+(setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+(setq exec-path (append exec-path '("/usr/local/bin")))
+
 ;; Provides loop
 (require 'cl)
 
@@ -125,9 +129,9 @@
 (global-rainbow-delimiters-mode)
 
 ;; Various configurations
-(set-default-font "Ubuntu Mono-12")
+(set-default-font "Menlo-12")
 (add-to-list 'default-frame-alist
-             '(font . "Ubuntu Mono-12"))
+             '(font . "Menlo-12"))
 (setq frame-title-format '("" invocation-name "@" system-name " : %b"))
 
 (tool-bar-mode -1)                    ; hide toolbar
