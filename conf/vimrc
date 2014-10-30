@@ -21,10 +21,10 @@ no H 8<Down>
 no T 8<Up>
 
 set nocompatible
-set background=light
+set background=dark
 set t_Co=256
 syntax on
-colorscheme solarized
+colorscheme default
 set number
 set ff=unix
 set enc=utf-8
@@ -56,14 +56,13 @@ set shortmess=atI
 set autoread
 set confirm
 set mousehide
-set fdm=indent
 
 set backupdir=~/.vim/backup//,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim/backup//,~/.tmp,~/tmp,/var/tmp,/tmp
 
 set wildmenu
 set wildmode=longest:full,full
-set wildignorecase
+"set wildignorecase
 
 set grepprg=ack
 set grepformat=%f:%l:%m
