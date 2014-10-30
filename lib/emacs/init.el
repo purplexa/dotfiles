@@ -138,7 +138,7 @@
 
 ;; Color parentheses based on nesting
 (require 'rainbow-delimiters)
-(global-rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Various configurations
 (set-default-font "Menlo-12")
