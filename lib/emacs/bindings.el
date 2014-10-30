@@ -26,6 +26,12 @@
                   (interactive)
                   (join-line -1)))
 
+;; Rearrange buffers in windows
+(global-set-key (kbd "<C-S-up>")     'buf-move-up)
+(global-set-key (kbd "<C-S-down>")   'buf-move-down)
+(global-set-key (kbd "<C-S-left>")   'buf-move-left)
+(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+
 ;; Disable Drupal mode's stupid C-a rebinding
 (define-key drupal-mode-map (kbd "C-a") nil)
 
