@@ -75,6 +75,10 @@ function sphp {
   chromium-browser --app="http://us2.php.net/manual-lookup.php?pattern=$1"
 }
 
+function diralias {
+  echo "hash -d $1=$(pwd)" >> $DOTSDIR/lib/zsh/dirs.local
+}
+
 man() {
 	env \
 		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
