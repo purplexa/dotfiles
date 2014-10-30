@@ -61,6 +61,19 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                              (powerline-fill face2 (powerline-width rhs))
                              (powerline-render rhs)))))))
 
+(defun rename-buffer-to-projectile ()
+  "Add the path within the projectile project to the buffer name"
+  (interactive)
+  (when (projectile-project-p)
+    (when (projectile-project-buffer-p (current-buffer) (projectile-project-root))
+      (rename-buffer (concat (mapconcat
+                              'identity
+                              (split-string (buffer-file-name) (projectile-project-root))
+                              "")
+                             "|"
+                             (projectile-project-name)
+                             )))))
+
 (defun beginning-of-line-or-indentation ()
   "move to beginning of line, or indentation"
   (interactive)
