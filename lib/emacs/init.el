@@ -27,7 +27,9 @@
 (require 'evil)
 (evil-mode 1)
 (evil-set-initial-state 'git-commit-mode 'insert)
-(global-undo-tree-mode nil)
+(setq evil-want-fine-undo t)
+
+;; (global-undo-tree-mode nil)
 
 ;; Use God Mode
 ;; (require 'god-mode)
@@ -91,7 +93,7 @@
 
 ;; Use Powerline for fancy modeline
 (require 'powerline)
-(powerline-default-theme)
+(powerline-evil-vim-color-theme)
 
 ;; Configure whitespace-mode
 (require 'whitespace)
