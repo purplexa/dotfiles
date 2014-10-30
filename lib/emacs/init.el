@@ -128,7 +128,7 @@
              '("\\.js" . js2-mode))
 
 ;; Use Leuven theme
-(load-theme 'leuven t)
+(load-theme 'base16-monokai t)
 
 ;; Use ibuffer mode
 (defalias 'list-buffers 'ibuffer)
