@@ -14,6 +14,7 @@ function prompt_name {
 
 function prompt_branch {
   ref=$(git symbolic-ref HEAD 2> /dev/null)
+  chash=$(git rev-parse --short HEAD 2> /dev/null)
   if [[ -n $ref ]]; then
     gitstat=$(git status 2>/dev/null | grep '^\(Untracked\|Changes\|Changed but not updated:\)')
     if [[ $(echo ${gitstat} | grep -c "^\(Changes to be committed:\|Changes not staged for commit:\)$") > 0 ]]; then
@@ -22,7 +23,7 @@ function prompt_branch {
     if [[ $(echo ${gitstat} | grep -c "^\(Untracked files:\|Changed but not updated:\)$") > 0 ]]; then
       gitqmark='?'
     fi
-    echo -n "%{$fg[blue]%}on %{$fg[magenta]%}${ref#refs/heads/}%{$fg[cyan]%}$gitbang$gitqmark%{$terminfo[sgr0]%} "
+    echo -n "%{$fg[blue]%}on %{$fg[magenta]%}${ref#refs/heads/}%{$fg[cyan]%}$gitbang$gitqmark %{$terminfo[sgr0]%}(%{$fg[red]%}$chash%{$terminfo[sgr0]%})%{$terminfo[sgr0]%} "
   fi
 }
 
@@ -30,6 +31,17 @@ function prompt_drush {
   f="${TMPDIR:-/tmp/}/drush-env/drush-drupal-site-$$"
   if [ -f $f ]; then
     echo -n "%{$fg[blue]%}using %{$fg[red]%}$(cat "$f")%{$terminfo[sgr0]%} "
+  fi
+}
+
+function precmd {
+  echo -ne "\033]2;$PWD\007"
+  gitrepo=$(git rev-parse --show-toplevel 2> /dev/null)
+  if [[ -n $gitrepo ]]; then
+    gitrepo=$(basename $gitrepo)
+    echo -ne "\033]1;$gitrepo\007"
+  else
+    echo -ne "\033]1;${PWD##*/}\007"
   fi
 }
 
