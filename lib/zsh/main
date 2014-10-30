@@ -53,7 +53,7 @@ export MOZ_DISABLE_PANGO=1
 
 MALLOC_CHECK_=1
 
-eval `dircolors ~/.dircolors`
+#eval `dircolors ~/.dircolors`
 
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty
@@ -68,16 +68,17 @@ zmodload -ap zsh/mapfile mapfile
 . $DOTSDIR/lib/zsh/os
 . $DOTSDIR/lib/zsh/prompt
 . $DOTSDIR/lib/zsh/startup
-. ~/Development/drush-zsh/drush.complete.zsh
+#. ~/Development/drush-zsh/drush.complete.zsh
 
 # rbenv
 eval "$(rbenv init -)"
 
 #fpath=($DOTSDIR/lib/zsh/completion.d $fpath)
 fpath=(/usr/local/share/zsh-completions/src $fpath)
+fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -U compinit
 compinit -i
 
-export PATH=$PATH:$HOME/.composer/vendor/bin
+export PATH=/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:$HOME/.composer/vendor/bin
 
 #eval $(keychain --eval --agents ssh -Q --quiet id_rsa 2011_ryan_id_rsa)
