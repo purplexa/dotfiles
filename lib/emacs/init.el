@@ -106,9 +106,8 @@
 ;; Configure whitespace-mode
 (require 'whitespace)
 (setq whitespace-style '(face tabs trailing lines-tail))
-;; (set-face-attribute 'whitespace-line nil
-;;                     :foreground 'unspecified
-;;                     :background "#efefef")
+(set-face-attribute 'whitespace-line nil
+                    :background "#494949")
 (global-whitespace-mode 1)
 
 ;; Setup emacs for Drupal development
@@ -126,7 +125,7 @@
              '("\\.js" . js2-mode))
 
 ;; Use Leuven theme
-(load-theme 'base16-monokai t)
+;;(load-theme 'moe-dark t)
 
 ;; Use ibuffer mode
 (defalias 'list-buffers 'ibuffer)
