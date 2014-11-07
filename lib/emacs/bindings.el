@@ -91,6 +91,9 @@
 (define-key evil-normal-state-map "Q" 'call-last-kbd-macro)
 (define-key evil-visual-state-map "Q" 'call-last-kbd-macro)
 (define-key evil-insert-state-map [escape] 'evil-normal-state)
+(define-key evil-normal-state-map (kbd "C-i") nil)
+(define-key evil-visual-state-map (kbd "C-i") nil)
+(define-key evil-motion-state-map (kbd "C-i") nil)
 
 ;; God mode bindings
 ;; (global-set-key (kbd "<escape>") 'god-local-mode)
