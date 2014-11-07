@@ -29,8 +29,6 @@
 (evil-set-initial-state 'git-commit-mode 'insert)
 (setq evil-want-fine-undo t)
 
-;; (global-undo-tree-mode nil)
-
 ;; Use God Mode
 ;; (require 'god-mode)
 ;; (god-mode)
