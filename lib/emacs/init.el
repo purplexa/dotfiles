@@ -59,7 +59,7 @@
 (projectile-global-mode t)
 
 ;; Rename buffers to include the project path from Projectile
-(add-hook 'puppet-mode-hook 'rename-buffer-to-projectile)
+(add-hook 'puppet-mode-hook 'rename-puppet-buffer)
 (add-hook 'yaml-mode-hook 'rename-buffer-to-projectile)
 
 ;; Enable autoindenting in well-behaved modes

@@ -74,6 +74,14 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
                              (projectile-project-name)
                              )))))
 
+(defun rename-puppet-buffer ()
+  "Name a puppet buffer after the class name it contains"
+  (interactive)
+  (goto-char 1)
+  (when (re-search-forward "^class \\([a-z_]+\\(::[a-z_]+\\)*\\)")
+      (rename-buffer (concat (match-string 1)
+                             ".pp"))))
+
 (defun beginning-of-line-or-indentation ()
   "move to beginning of line, or indentation"
   (interactive)
