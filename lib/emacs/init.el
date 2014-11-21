@@ -10,6 +10,10 @@
 ;; Instead of ~/.emacs.d, use this directory
 (setq user-emacs-directory user-init-dir)
 
+;; Store Customize directives in a single place
+(setq custom-file (expand-file-name "customize.el" user-init-dir))
+(load custom-file)
+
 ;; Listen to $PATH
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
