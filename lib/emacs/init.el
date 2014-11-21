@@ -66,7 +66,7 @@
 
 ;; Enable autoindenting in well-behaved modes
 (add-hook 'lisp-mode-hook 'aggressive-indent-mode)
-(add-hook 'puppet-mode-hook 'aggressive-indent-mode)
+;(add-hook 'puppet-mode-hook 'aggressive-indent-mode)
 
 ;; Highlight matching symbols
 (require 'highlight-symbol)
@@ -113,8 +113,8 @@
 ;; Configure whitespace-mode
 (require 'whitespace)
 (setq whitespace-style '(face tabs trailing lines-tail))
-(set-face-attribute 'whitespace-line nil
-                    :background "#494949")
+;; (set-face-attribute 'whitespace-line nil
+;;                     :background "#494949")
 (global-whitespace-mode 1)
 
 ;; Setup emacs for Drupal development
@@ -131,8 +131,9 @@
 (add-to-list 'auto-mode-alist
              '("\\.js" . js2-mode))
 
-;; Use Leuven theme
-;;(load-theme 'moe-dark t)
+;; Use moe-dark theme
+(require 'moe-theme)
+(load-theme 'moe-dark t)
 
 ;; Use ibuffer mode
 (defalias 'list-buffers 'ibuffer)
@@ -152,10 +153,10 @@
 
 (tool-bar-mode -1)                    ; hide toolbar
 (menu-bar-mode -1)                    ; hide menubar
+(scroll-bar-mode -1)                  ; hide scrollbar
 
 (setq-default font-lock-maximum-decoration t)       ; show maximum possible highlighting
 (setq-default column-number-mode t)                 ; show column number in modeline
-(setq-default scroll-bar-mode nil)                  ; hide scrollbar
 
 (setq-default inhibit-startup-screen t)             ; don't display the startup screen
 (setq-default initial-scratch-message "")           ; don't show anything in the scratch buffer
