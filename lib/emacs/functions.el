@@ -79,8 +79,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   (interactive)
   (goto-char 1)
   (when (re-search-forward "^class \\([a-z_]+\\(::[a-z_]+\\)*\\)")
-      (rename-buffer (concat (match-string 1)
-                             ".pp"))))
+    (rename-buffer (concat (match-string 1)
+                           ".pp"))))
 
 (defun beginning-of-line-or-indentation ()
   "move to beginning of line, or indentation"
@@ -122,10 +122,17 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 (defun geben-find-buffer (arg buf)
   (interactive "bBuffer to load: ")
   (geben-with-current-session session
-    (geben-open-fill (geben-source-fileuri session (buffer-file-name buf)))))
+                              (geben-open-fill (geben-source-fileuri session (buffer-file-name buf)))))
 
 ;; Auto align region on =.
 (defun align-region-on-equals (beg end)
   "Align the region on =."
   (interactive "r")
-  (align-regexp beg end "="))
+  (align-regexp beg end "\\(\\s-*\\)="))
+
+;; Eval sexp and replace with value
+(defun replace-last-sexp ()
+  (interactive)
+  (let ((value (eval (preceding-sexp))))
+    (kill-sexp -1)
+    (insert (format "%S" value))))
