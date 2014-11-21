@@ -89,6 +89,9 @@
 ;; Save undo history when reverting buffer
 (setq revert-buffer-function 'revert-buffer-keep-history)
 
+;; Enable visual regexp
+(require 'visual-regexp-steroids)
+
 ;; Use YASnippet
 (require 'yasnippet)
 (yas/initialize)

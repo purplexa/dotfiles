@@ -26,6 +26,11 @@
                   (interactive)
                   (join-line -1)))
 
+;; Set bindings for visual regexp
+(define-key global-map (kbd "C-c r") 'vr/replace)
+(define-key global-map (kbd "C-c q") 'vr/query-replace)
+(define-key global-map (kbd "C-c m") 'vr/mc-mark)
+
 ;; Rearrange buffers in windows
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
 (global-set-key (kbd "<C-S-down>")   'buf-move-down)
