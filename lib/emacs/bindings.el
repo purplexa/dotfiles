@@ -100,6 +100,14 @@
 (define-key evil-visual-state-map (kbd "C-i") nil)
 (define-key evil-motion-state-map (kbd "C-i") nil)
 
+;; Disable OSX bindings
+(defun do-nothing ()
+  "A do-nothing function"
+  (interactive)
+  nil)
+(global-set-key (kbd "<wheel-left>") 'do-nothing)
+(global-set-key (kbd "<wheel-right>") 'do-nothing)
+
 ;; God mode bindings
 ;; (global-set-key (kbd "<escape>") 'god-local-mode)
 ;; (define-key god-local-mode-map (kbd ".") 'repeat)
