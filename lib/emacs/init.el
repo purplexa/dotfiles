@@ -149,27 +149,32 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Various configurations
-(cond ((find-font (font-spec :name "Menlo")) (
-(set-frame-font "Menlo-10")
-(add-to-list 'default-frame-alist
-             '(font . "Menlo-10"))))
-             ((find-font (font-spec :name "Ubuntu Mono")) (progn
-(set-frame-font "Ubuntu Mono-10")
-(add-to-list 'default-frame-alist
-             '(font . "Ubuntu Mono-10"))))
-             ((find-font (font-spec :name "Inconsolata")) (progn
-(set-frame-font "Inconsolata-10")
-(add-to-list 'default-frame-alist
-             '(font . "Inconsolata-10"))))
-             ((find-font (font-spec :name "Consolas")) (progn
-(set-frame-font "Consolas-10")
-(add-to-list 'default-frame-alist
-             '(font . "Consolas-10"))))
-             ((find-font (font-spec :name "Courier New")) (progn
-(set-frame-font "Courier New-10")
-(add-to-list 'default-frame-alist
-             '(font . "Courier New-10"))))
-)
+(cond ((find-font (font-spec :name "Menlo"))
+       (progn (set-frame-font "Menlo-10")
+              (set-face-attribute 'default t :font "Menlo-10")
+              (add-to-list 'default-frame-alist
+                           '(font . "Menlo-10"))))
+      ((find-font (font-spec :name "Ubuntu Mono"))
+       (progn (set-frame-font "Ubuntu Mono-10")
+              (set-face-attribute 'default t :font "Ubuntu Mono-10")
+              (add-to-list 'default-frame-alist
+                           '(font . "Ubuntu Mono-10"))))
+      ((find-font (font-spec :name "Inconsolata"))
+       (progn (set-frame-font "Inconsolata-10")
+              (set-face-attribute 'default t :font "Inconsolata-10")
+              (add-to-list 'default-frame-alist
+                           '(font . "Inconsolata-10"))))
+      ((find-font (font-spec :name "Consolas"))
+       (progn (set-frame-font "Consolas-10")
+              (set-face-attribute 'default t :font "Consolas-10")
+              (add-to-list 'default-frame-alist
+                           '(font . "Consolas-10"))))
+      ((find-font (font-spec :name "Courier New"))
+       (progn (set-frame-font "Courier New-10")
+              (set-face-attribute 'default t :font "Courier New-10")
+              (add-to-list 'default-frame-alist
+                           '(font . "Courier New-10")))))
+
 (setq frame-title-format '("" invocation-name "@" system-name " : %b"))
 
 (tool-bar-mode -1)                    ; hide toolbar
