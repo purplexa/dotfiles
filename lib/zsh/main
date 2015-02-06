@@ -71,7 +71,9 @@ zmodload -ap zsh/mapfile mapfile
 #. ~/Development/drush-zsh/drush.complete.zsh
 
 # rbenv
-eval "$(rbenv init -)"
+if hash rbenv 2> /dev/null; then
+  eval "$(rbenv init -)"
+fi
 
 #fpath=($DOTSDIR/lib/zsh/completion.d $fpath)
 fpath=(/usr/local/share/zsh-completions/src $fpath)

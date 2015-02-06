@@ -31,6 +31,7 @@
 (require 'evil)
 (evil-mode 1)
 (evil-set-initial-state 'git-commit-mode 'insert)
+(evil-set-initial-state 'cider-mode 'insert)
 (setq evil-want-fine-undo t)
 
 ;; Use God Mode
@@ -66,6 +67,8 @@
 
 ;; Enable autoindenting in well-behaved modes
 (add-hook 'lisp-mode-hook 'aggressive-indent-mode)
+(add-hook 'lisp-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook 'paredit-mode)
 ;(add-hook 'puppet-mode-hook 'aggressive-indent-mode)
 
 ;; Highlight matching symbols
@@ -146,9 +149,27 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Various configurations
-(set-default-font "Menlo-12")
+(cond ((find-font (font-spec :name "Menlo")) (
+(set-frame-font "Menlo-10")
 (add-to-list 'default-frame-alist
-             '(font . "Menlo-12"))
+             '(font . "Menlo-10"))))
+             ((find-font (font-spec :name "Ubuntu Mono")) (progn
+(set-frame-font "Ubuntu Mono-10")
+(add-to-list 'default-frame-alist
+             '(font . "Ubuntu Mono-10"))))
+             ((find-font (font-spec :name "Inconsolata")) (progn
+(set-frame-font "Inconsolata-10")
+(add-to-list 'default-frame-alist
+             '(font . "Inconsolata-10"))))
+             ((find-font (font-spec :name "Consolas")) (progn
+(set-frame-font "Consolas-10")
+(add-to-list 'default-frame-alist
+             '(font . "Consolas-10"))))
+             ((find-font (font-spec :name "Courier New")) (progn
+(set-frame-font "Courier New-10")
+(add-to-list 'default-frame-alist
+             '(font . "Courier New-10"))))
+)
 (setq frame-title-format '("" invocation-name "@" system-name " : %b"))
 
 (tool-bar-mode -1)                    ; hide toolbar
@@ -168,6 +189,7 @@
 
 (setq-default indent-tabs-mode nil)                 ; disable inserting tab characters
 (setq-default sh-basic-offset 2)                    ; indent shell scripts two spaces
+(setq-default sh-indentation 2)                     ; indent shell scripts two spaces
 (setq-default css-indent-offset 2)                  ; indent CSS files two spaces
 (setq-default js2-basic-offset 2)                   ; indent JS files two spaces
 (setq-default js2-strict-missing-semi-warning nil)  ; allow missing semicolons
