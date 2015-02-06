@@ -34,12 +34,6 @@
 (evil-set-initial-state 'cider-mode 'insert)
 (setq evil-want-fine-undo t)
 
-;; Use God Mode
-;; (require 'god-mode)
-;; (god-mode)
-;; (add-hook 'god-mode-enabled-hook 'god-mode-update-cursor)
-;; (add-hook 'god-mode-disabled-hook 'god-mode-update-cursor)
-
 ;; Use Ido Mode
 (require 'flx-ido)
 (setq ido-everywhere t)
@@ -158,30 +152,51 @@
 ;; Various configurations
 (setq frame-title-format '("" invocation-name "@" system-name " : %b"))
 
-(tool-bar-mode -1)                    ; hide toolbar
-(menu-bar-mode -1)                    ; hide menubar
-(scroll-bar-mode -1)                  ; hide scrollbar
+;; Hide toolbar
+(tool-bar-mode -1)
+;; Hide menubar
+(menu-bar-mode -1)
+;; Hide scrollbar
+(scroll-bar-mode -1)
 
-(setq-default font-lock-maximum-decoration t)       ; show maximum possible highlighting
-(setq-default column-number-mode t)                 ; show column number in modeline
+;; show maximum possible highlighting
+(setq-default font-lock-maximum-decoration t)
+;; show column number in modeline
+(setq-default column-number-mode t)
 
-(setq-default inhibit-startup-screen t)             ; don't display the startup screen
-(setq-default initial-scratch-message "")           ; don't show anything in the scratch buffer
-(setq-default vc-handled-backends nil)              ; disable version control
-(setq-default show-paren-delay 0)                   ; highlight matching parens immediately
-(setq-default make-backup-files nil)                ; don't make backup files
-(setq-default require-final-newline t)              ; require newline at end of file
-(setq-default php-mode-coding-style 'drupal)        ; use drupal coding standards in php-mode
+;; Don't display the startup screen
+(setq-default inhibit-startup-screen t)
+;; Don't show anything in the scratch buffer
+(setq-default initial-scratch-message "")
+;; Disable version control
+(setq-default vc-handled-backends nil)
+;; Highlight matching parens immediately
+(setq-default show-paren-delay 0)
+;; Don't make backup files
+(setq-default make-backup-files nil)
+;; Require newline at end of file
+(setq-default require-final-newline t)
+;; Use drupal coding standards in php-mode
+(setq-default php-mode-coding-style 'drupal)
 
-(setq-default indent-tabs-mode nil)                 ; disable inserting tab characters
-(setq-default sh-basic-offset 2)                    ; indent shell scripts two spaces
-(setq-default sh-indentation 2)                     ; indent shell scripts two spaces
-(setq-default css-indent-offset 2)                  ; indent CSS files two spaces
-(setq-default js2-basic-offset 2)                   ; indent JS files two spaces
-(setq-default js2-strict-missing-semi-warning nil)  ; allow missing semicolons
-(setq-default apache-indent-level 2)                ; indent apache configs two spaces
-(setq tab-stop-list (number-sequence 2 120 2))      ; put tab-stops every two characters
-(setq-default scss-compile-at-save nil)             ; don't compile sass for me
+;; Disable inserting tab characters
+(setq-default indent-tabs-mode nil)
+;; Indent shell scripts two spaces
+(setq-default sh-basic-offset 2)
+;; Indent shell scripts two spaces
+(setq-default sh-indentation 2)
+;; Indent CSS files two spaces
+(setq-default css-indent-offset 2)
+;; Indent JS files two spaces
+(setq-default js2-basic-offset 2)
+;; Allow missing semicolons
+(setq-default js2-strict-missing-semi-warning nil)
+;; Indent apache configs two spaces
+(setq-default apache-indent-level 2)
+;; Put tab-stops every two characters
+(setq tab-stop-list (number-sequence 2 120 2))
+;; Don't compile sass for me
+(setq-default scss-compile-at-save nil)
 
 ;; Put autosave/backup files in one place
 ;(defvar user-backup-directory (expand-file-name "backups" user-init-dir))
