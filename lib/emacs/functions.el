@@ -139,10 +139,10 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
 
 (defun force-font (font-name)
   "Set the font used globally."
-  (let font-value (concat font-name "-10"))
-  (set-frame-font font-value)
-  (set-face-attribute 'default t :font font-value)
-  (add-to-list 'default-frame-alist '(font . font-value)))
+  (let ((font-value (concat font-name "-10")))
+    (set-frame-font font-value)
+    (set-face-attribute 'default t :font font-value)
+    (add-to-list 'default-frame-alist '(font . font-value))))
 
 (defun choose-font (font-list)
   "Set the global font to the first value installed."
