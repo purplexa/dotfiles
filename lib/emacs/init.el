@@ -143,11 +143,13 @@
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; Select the first installed font
-(choose-font '("Menlo"
-               "Ubuntu Mono"
-               "Inconsolata"
-               "Consolas"
-               "Courier New"))
+(defun choose-font-list (frame)
+  (choose-font '("Menlo"
+                 "Ubuntu Mono"
+                 "Inconsolata"
+                 "Consolas"
+                 "Courier New")))
+(add-hook 'after-make-frame-functions 'choose-font-list)
 
 ;; Various configurations
 (setq frame-title-format '("" invocation-name "@" system-name " : %b"))
