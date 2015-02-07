@@ -1,14 +1,14 @@
 # -*- mode: sh -*-
 function folsym {
-    if [[ -e $1 || -h $1 ]]; then
-        file=$1
-    else
-        file=`which $1`
-    fi
-    if [[ -e $file || -L $file ]]; then
-        if [[ -L $file ]]; then
-            echo `ls -ld $file | perl -ane 'print $F[7]'` '->'
-            folsym `perl -le   '$file = $ARGV[0];
+  if [[ -e $1 || -h $1 ]]; then
+    file=$1
+  else
+    file=`which $1`
+  fi
+  if [[ -e $file || -L $file ]]; then
+    if [[ -L $file ]]; then
+      echo `ls -ld $file | perl -ane 'print $F[7]'` '->'
+      folsym `perl -le   '$file = $ARGV[0];
                                 $dest = readlink $file
                                 if ($dest !~ m{^/}) {
                                     $file =~ s{(/?)[^/]*$}{$1$dest};
@@ -21,19 +21,19 @@ function folsym {
                                 }
                                 $file =~ s{^(/\.\.)+}{};
                                 print $file' $file`
-        else
-            ls -d $file
-        fi
     else
-        echo $file
+      ls -d $file
     fi
+  else
+    echo $file
+  fi
 }
 
 function title {
-    if [[ $TERM == "screen"* ]]; then
-        print -nR $'\033k'$1$'\033\\'
-        print -nR $'\033]0;'$2$'\a'
-    fi
+  if [[ $TERM == "screen"* ]]; then
+    print -nR $'\033k'$1$'\033\\'
+    print -nR $'\033]0;'$2$'\a'
+  fi
 }
 
 function cool-cd {
@@ -80,13 +80,13 @@ function diralias {
 }
 
 man() {
-	env \
-		LESS_TERMCAP_mb=$(printf "\e[1;31m") \
-		LESS_TERMCAP_md=$(printf "\e[1;31m") \
-		LESS_TERMCAP_me=$(printf "\e[0m") \
-		LESS_TERMCAP_se=$(printf "\e[0m") \
-		LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
-		LESS_TERMCAP_ue=$(printf "\e[0m") \
-		LESS_TERMCAP_us=$(printf "\e[1;32m") \
-			man "$@"
+  env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") \
+    man "$@"
 }
