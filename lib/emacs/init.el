@@ -82,12 +82,18 @@
 ;; Use smartparens
 (require 'smartparens-config)
 (smartparens-global-mode t)
+(setq sp-base-key-bindings 'paredit)
+(setq sp-autoskip-closing-pair 'always)
+(setq sp-hybrid-kill-entire-symbol nil)
+(sp-use-paredit-bindings)
 
 ;; Enable autoindenting in well-behaved modes
 (add-hook 'lisp-mode-hook 'aggressive-indent-mode)
-; (add-hook 'lisp-mode-hook 'paredit-mode)
-; (add-hook 'clojure-mode-hook 'paredit-mode)
-; (add-hook 'puppet-mode-hook 'aggressive-indent-mode)
+(add-hook 'emacs-lisp-mode-hook 'aggressive-indent-mode)
+(add-hook 'clojure-mode-hook 'aggressive-indent-mode)
+(add-hook 'lisp-mode-hook 'smartparens-strict-mode)
+(add-hook 'emacs-lisp-mode-hook 'smartparens-strict-mode)
+(add-hook 'clojure-mode-hook 'smartparens-strict-mode)
 
 ;; Highlight matching symbols
 (require 'highlight-symbol)
