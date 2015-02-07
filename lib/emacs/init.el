@@ -18,6 +18,11 @@
 (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
 (setq exec-path (append exec-path '("/usr/local/bin")))
 
+;; Start server
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
 ;; Provides loop
 (require 'cl)
 
