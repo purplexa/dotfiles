@@ -157,6 +157,7 @@
 
 ;; Highlight matching parens
 (show-paren-mode 1)
+(setq-default show-paren-style "expression")
 
 ;; Color parentheses based on nesting
 (require 'rainbow-delimiters)
