@@ -79,11 +79,15 @@
 (add-hook 'yaml-mode-hook 'rename-buffer-to-projectile)
 (add-hook 'python-mode-hook 'rename-python-init)
 
+;; Use smartparens
+(require 'smartparens-config)
+(smartparens-global-mode t)
+
 ;; Enable autoindenting in well-behaved modes
 (add-hook 'lisp-mode-hook 'aggressive-indent-mode)
-(add-hook 'lisp-mode-hook 'paredit-mode)
-(add-hook 'clojure-mode-hook 'paredit-mode)
-;(add-hook 'puppet-mode-hook 'aggressive-indent-mode)
+; (add-hook 'lisp-mode-hook 'paredit-mode)
+; (add-hook 'clojure-mode-hook 'paredit-mode)
+; (add-hook 'puppet-mode-hook 'aggressive-indent-mode)
 
 ;; Highlight matching symbols
 (require 'highlight-symbol)

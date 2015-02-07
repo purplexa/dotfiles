@@ -16,10 +16,10 @@
                    js2-mode leuven-theme markdown-mode moe-theme
                    multiple-cursors paredit php-auto-yasnippets
                    php-mode powerline projectile puppet-mode
-                   rainbow-delimiters scss-mode smex smooth-scrolling
-                   solarized-theme ssh-config-mode switch-window
-                   visual-regexp-steroids web-mode wrap-region
-                   yaml-mode yasnippet))
+                   rainbow-delimiters scss-mode smartparens smex
+                   smooth-scrolling solarized-theme ssh-config-mode
+                   switch-window visual-regexp-steroids web-mode
+                   wrap-region yaml-mode yasnippet))
 
 (defun custom-packages-installed ()
   (loop for p in user-custom-packages
