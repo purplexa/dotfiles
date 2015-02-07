@@ -90,3 +90,29 @@ man() {
     LESS_TERMCAP_us=$(printf "\e[1;32m") \
     man "$@"
 }
+
+# do we have ack? I'd like to say so.
+if which ack-grep >/dev/null 2>&1
+then
+  alias ack=ack-grep
+fi
+
+# Catch if we don't have it. Alias returns 0 too.
+if which ack >/dev/null 2>&1
+then
+  # add a function to wrap around ack.
+  # annoyingly BSD xargs doesn't have -e
+  vack()
+  {
+    if [ $#[@] -eq 1 ]
+    then
+      # We could have more args (like a dir, whatever..), so if we just
+      # have one, assume that whole thing is the string to search for.
+      # Also make vim go to the first line, then search for it
+      # (otherwise wrapscan can get in the way).
+      ack --no-color -l "$@" | /usr/bin/xargs -o vi +1 +/"$@"
+    else
+      ack --no-color -l $@ | /usr/bin/xargs -o vi
+    fi
+  }
+fi
