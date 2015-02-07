@@ -32,6 +32,9 @@
 ;; Magic command repetition
 (load-user-file "contrib/repeatable.el")
 
+;; Check everything we can
+(global-flycheck-mode)
+
 ;; Use Evil modal editing
 (require 'evil)
 (evil-mode 1)
