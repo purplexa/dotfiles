@@ -82,6 +82,13 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
     (rename-buffer (concat (match-string 2)
                            ".pp"))))
 
+(defun rename-python-init ()
+  "Name a Python __init__.py file to be more useful"
+  (interactive)
+  (when (string= (file-name-nondirectory (buffer-file-name))
+           "__init__.py")
+    (rename-buffer-to-projectile)))
+
 (defun beginning-of-line-or-indentation ()
   "move to beginning of line, or indentation"
   (interactive)
