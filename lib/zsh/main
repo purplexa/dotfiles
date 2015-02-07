@@ -66,6 +66,7 @@ zmodload -ap zsh/mapfile mapfile
 . $DOTSDIR/lib/zsh/dirs
 . $DOTSDIR/lib/zsh/functions
 . $DOTSDIR/lib/zsh/os
+. $DOTSDIR/lib/zsh/vcsinfo
 . $DOTSDIR/lib/zsh/prompt
 . $DOTSDIR/lib/zsh/startup
 #. ~/Development/drush-zsh/drush.complete.zsh
