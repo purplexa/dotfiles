@@ -74,9 +74,10 @@
 ;; Use Projectile
 (projectile-global-mode t)
 
-;; Rename buffers to include the project path from Projectile
+;; Rename buffers to be useful
 (add-hook 'puppet-mode-hook 'rename-puppet-buffer)
 (add-hook 'yaml-mode-hook 'rename-buffer-to-projectile)
+(add-hook 'python-mode-hook 'rename-python-init)
 
 ;; Enable autoindenting in well-behaved modes
 (add-hook 'lisp-mode-hook 'aggressive-indent-mode)
