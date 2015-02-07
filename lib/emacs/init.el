@@ -63,6 +63,14 @@
 (add-hook 'prog-mode-hook 'auto-complete-mode)
 (add-hook 'yaml-mode-hook 'auto-complete-mode)
 
+;; Use elpy for Python
+(elpy-enable)
+(defun swap-flymodes ()
+  (interactive)
+  (flymake-mode nil)
+  (flycheck-mode t))
+(add-hook 'elpy-mode-hook 'swap-flymodes)
+
 ;; Use Projectile
 (projectile-global-mode t)
 
