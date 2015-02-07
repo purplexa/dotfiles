@@ -78,8 +78,8 @@ then it takes a second \\[keyboard-quit] to abort the minibuffer."
   "Name a puppet buffer after the class name it contains"
   (interactive)
   (goto-char 1)
-  (when (re-search-forward "^class \\([a-z_]+\\(::[a-z_]+\\)*\\)")
-    (rename-buffer (concat (match-string 1)
+  (when (re-search-forward "^\\(class\\|define\\) \\([a-z_]+\\(::[a-z_]+\\)*\\)")
+    (rename-buffer (concat (match-string 2)
                            ".pp"))))
 
 (defun beginning-of-line-or-indentation ()
