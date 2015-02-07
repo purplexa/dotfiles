@@ -236,3 +236,6 @@
 ;; Load extra config files
 (load-user-file "drupal.el")
 (load-user-file "bindings.el")
+
+(provide 'init)
+;;; init.el ends here
