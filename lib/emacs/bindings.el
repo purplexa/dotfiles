@@ -55,6 +55,8 @@
 (define-key evil-normal-state-map (kbd "C-t") nil)
 (define-key evil-normal-state-map (kbd "u") 'undo)
 (define-key evil-normal-state-map (kbd "q") nil)
+(define-key evil-normal-state-map (kbd "H") 'evil-scroll-page-down)
+(define-key evil-normal-state-map (kbd "T") 'evil-scroll-page-up)
 (define-key evil-visual-state-map (kbd "k") 'evil-delete)
 (define-key evil-visual-state-map (kbd "j") 'evil-find-char-to)
 (define-key evil-visual-state-map (kbd "l") 'evil-search-next)
@@ -65,6 +67,9 @@
 (define-key evil-visual-state-map (kbd "C-t") nil)
 (define-key evil-visual-state-map (kbd "u") 'undo)
 (define-key evil-visual-state-map (kbd "q") nil)
+(define-key evil-visual-state-map (kbd "H") 'evil-scroll-page-down)
+(define-key evil-visual-state-map (kbd "T") 'evil-scroll-page-up)
+
 (define-key evil-normal-state-map "\C-e" 'evil-end-of-line)
 (define-key evil-insert-state-map "\C-e" 'end-of-line)
 (define-key evil-visual-state-map "\C-e" 'evil-end-of-line)
@@ -107,6 +112,12 @@
   nil)
 (global-set-key (kbd "<wheel-left>") 'do-nothing)
 (global-set-key (kbd "<wheel-right>") 'do-nothing)
+
+;; YASnippet bindings. Tab is too overloaded.
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "<C-tab>") 'yas-expand)
+(define-key jedi-mode-map (kbd "<C-tab>") nil)
 
 ;; God mode bindings
 ;; (global-set-key (kbd "<escape>") 'god-local-mode)
