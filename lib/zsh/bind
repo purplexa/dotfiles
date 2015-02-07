@@ -11,6 +11,8 @@ bindkey 'OA' history-beginning-search-backward
 bindkey 'OB' history-beginning-search-forward
 bindkey '[A' history-beginning-search-backward
 bindkey '[B' history-beginning-search-forward
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
 bindkey '' history-beginning-search-backward
 bindkey '' history-beginning-search-forward
 bindkey '[1~' beginning-of-line
