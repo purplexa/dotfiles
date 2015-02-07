@@ -1,4 +1,4 @@
-# vim: syntax=zsh
+# -*- mode: sh -*-
 bindkey "^r" history-incremental-search-backward
 bindkey ' ' magic-space    # also do history expansion on space
 bindkey '^I' complete-word # complete on tab, leave expansion to _expand
@@ -55,7 +55,8 @@ zstyle ':completion:*:processes-names' command 'ps axho command'
 # 2. If you have a comment in /etc/hosts like #%foobar.domain,
 #    then foobar.domain will show up in autocomplete!
 zstyle ':completion:*' hosts $(awk '/^[^#]/ {print $2 $3" "$4" "$5}' /etc/hosts | grep -v ip6- && grep "^#%" /etc/hosts | awk -F% '{print $2}')
-zstyle ':completion:*:hosts' hosts $(awk '/^Host / {printf("%s ",$2)}' ~/.ssh/config 2>/dev/null)
+#zstyle ':completion:*:hosts' hosts $(awk '/^Host / {printf("%s ",$2)}' ~/.ssh/config 2>/dev/null)
+zstyle -e ':completion::*:*:*:hosts' hosts 'reply=(${=${${(f)"$(cat {/etc/ssh_,~/.ssh/known_}hosts(|2)(N) /dev/null)"}%%[# ]*}//,/ })'
 # Filename suffixes to ignore during completion (except after rm command)
 zstyle ':completion:*:*:(^rm):*:*files' ignored-patterns '*?.o' '*?.c~' \
     '*?.old' '*?.pro'
