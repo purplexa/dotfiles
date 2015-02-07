@@ -39,6 +39,9 @@
 (evil-set-initial-state 'cider-mode 'insert)
 (setq evil-want-fine-undo t)
 
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+
 ;; Use Ido Mode
 (require 'flx-ido)
 (setq ido-everywhere t)
