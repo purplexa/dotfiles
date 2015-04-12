@@ -4,6 +4,9 @@
   "Load a file in current user's configuration directory"
   (load-file (expand-file-name file user-init-dir)))
 
+;; Find some miscellaneous files
+(add-to-list 'load-path (expand-file-name "misc" user-init-dir))
+
 ;; Load custom functions
 (load-user-file "functions.el")
 
@@ -34,6 +37,9 @@
 
 ;; Check everything we can
 (global-flycheck-mode)
+
+;; email
+(require 'mu4e)
 
 ;; Use Evil modal editing
 (require 'evil)
@@ -70,6 +76,7 @@
   (flymake-mode nil)
   (flycheck-mode t))
 (add-hook 'elpy-mode-hook 'swap-flymodes)
+(add-hook 'python-mode-hook 'swap-flymodes)
 
 ;; Use Projectile
 (projectile-global-mode t)
@@ -83,7 +90,7 @@
 (require 'smartparens-config)
 (smartparens-global-mode t)
 (setq sp-base-key-bindings 'paredit)
-(setq sp-autoskip-closing-pair 'always)
+(setq sp-autoskip-closing-pair 'always-end)
 (setq sp-hybrid-kill-entire-symbol nil)
 (sp-use-paredit-bindings)
 
@@ -246,6 +253,7 @@
 ;; Load extra config files
 (load-user-file "drupal.el")
 (load-user-file "bindings.el")
+(load-user-file "email.el")
 
 (provide 'init)
 ;;; init.el ends here

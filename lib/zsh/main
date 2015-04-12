@@ -42,18 +42,27 @@ GIT_EDITOR='emacsclient -c'
 MUTT_EDITOR='emacsclient -c'
 PAGER='most'
 
+export EMAIL='rw@puppetlabs.com'
+
 export EDITOR='emacsclient -c'
 
 # by default: export WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'
-# we take out the slash, period, angle brackets, dash here.
-export WORDCHARS='*?_[]~=&;!#$%^(){}'
+# we take out the slash, period, angle brackets, dash, underscore, semicolon.
+export WORDCHARS='*?[]~=&!#$%^(){}'
 
 # fix Firefox fonts
 export MOZ_DISABLE_PANGO=1
 
 MALLOC_CHECK_=1
 
+# colorize things
+autoload colors zsh/terminfo
+
+if [[ "$terminfo[colors]" -ge 8 ]]; then
+  colors
+fi
 #eval `dircolors ~/.dircolors`
+
 
 zmodload -a zsh/stat stat
 zmodload -a zsh/zpty zpty

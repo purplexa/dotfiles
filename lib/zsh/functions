@@ -79,6 +79,16 @@ function diralias {
   echo "hash -d $1=$(pwd)" >> $DOTSDIR/lib/zsh/dirs.local
 }
 
+function venv {
+  path=("${(@)path:#~/virtualenvs/*}")
+  if [[ -n $1 && -d ~/virtualenvs/$1 ]]; then
+    path=(~/virtualenvs/$1/bin $path)
+    VIRTUALENV=$1
+  else
+    VIRTUALENV=
+  fi
+}
+
 man() {
   env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \

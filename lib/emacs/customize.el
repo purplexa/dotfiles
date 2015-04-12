@@ -10,7 +10,7 @@
  '(compilation-message-face (quote default))
  '(custom-safe-themes
    (quote
-    ("88e56f2e676c8828e08b128c74f2818cbfc77b79f8ebbae955db6098d0001473" "8d33dd4dc3a1c6c360f5391a949ceba1c5762a035044b29381dae04eaf61e77e" "e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" "c25b65d9f4a343f16919e7c202f185a4c044a47831c66f0e792f7a185688e75d" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "57f8801351e8b7677923c9fe547f7e19f38c99b80d68c34da6fa9b94dc6d3297" "41b6698b5f9ab241ad6c30aea8c9f53d539e23ad4e3963abff4b57c0f8bf6730" default)))
+    ("e53cc4144192bb4e4ed10a3fa3e7442cae4c3d231df8822f6c02f1220a0d259a" "921bb330a2c8103dedad8230cee639093888a3e3156259b53c381097b750b1e3" "f41fd682a3cd1e16796068a2ca96e82cfd274e58b978156da0acce4d56f2b0d5" "978ff9496928cc94639cb1084004bf64235c5c7fb0cfbcc38a3871eb95fa88f6" "9bac44c2b4dfbb723906b8c491ec06801feb57aa60448d047dbfdbd1a8650897" "88e56f2e676c8828e08b128c74f2818cbfc77b79f8ebbae955db6098d0001473" "8d33dd4dc3a1c6c360f5391a949ceba1c5762a035044b29381dae04eaf61e77e" "e16a771a13a202ee6e276d06098bc77f008b73bbac4d526f160faa2d76c1dd0e" "c25b65d9f4a343f16919e7c202f185a4c044a47831c66f0e792f7a185688e75d" "628278136f88aa1a151bb2d6c8a86bf2b7631fbea5f0f76cba2a0079cd910f7d" "1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "57f8801351e8b7677923c9fe547f7e19f38c99b80d68c34da6fa9b94dc6d3297" "41b6698b5f9ab241ad6c30aea8c9f53d539e23ad4e3963abff4b57c0f8bf6730" default)))
  '(fci-rule-color "#373b41")
  '(highlight-changes-colors (quote ("#FD5FF0" "#AE81FF")))
  '(highlight-tail-colors
@@ -69,7 +69,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(highlight-indentation-face ((t (:background "gray21"))))
+ '(highlight-indentation-face ((t (:background "seashell"))))
  '(rainbow-delimiters-depth-1-face ((t (:foreground "wheat"))))
  '(rainbow-delimiters-depth-2-face ((t (:foreground "cornflower blue"))))
  '(rainbow-delimiters-depth-3-face ((t (:foreground "light green"))))
