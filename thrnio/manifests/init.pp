@@ -43,7 +43,7 @@ class thrnio(
     mode   => '0640',
   }
 
-  ['ackrc', 'bashrc', 'bash_prompt', 'dircolors', 'fonts.conf' 'gitconfig',
+  ['ackrc', 'bashrc', 'bash_prompt', 'dircolors', 'fonts.conf', 'gitconfig',
    'spacemacs', 'tmux.conf', 'zshrc'].each |$filename| {
      file { "${homedir}/.${filename}":
        source => "puppet:///modules/thrnio/${filename}",
