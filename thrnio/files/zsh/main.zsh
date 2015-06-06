@@ -28,7 +28,7 @@ setopt rc_expand_param
 setopt rm_star_wait
 setopt prompt_subst
 
-HISTFILE=$DOTSDIR/lib/zsh/history
+HISTFILE=~/.zsh/history
 HISTSIZE=32767
 LISTMAX=0
 LOGCHECK=300
@@ -69,18 +69,20 @@ zmodload -a zsh/zpty zpty
 zmodload -a zsh/zprof zprof
 zmodload -ap zsh/mapfile mapfile
 
-. $DOTSDIR/lib/zsh/completion
-. $DOTSDIR/lib/zsh/bind
-. $DOTSDIR/lib/zsh/alias
-. $DOTSDIR/lib/zsh/dirs
-. $DOTSDIR/lib/zsh/functions
-. $DOTSDIR/lib/zsh/os
-. $DOTSDIR/lib/zsh/vcsinfo
-. $DOTSDIR/lib/zsh/prompt
-. $DOTSDIR/lib/zsh/startup
+. ~/.zsh/completion.zsh
+. ~/.zsh/bind.zsh
+. ~/.zsh/alias.zsh
+. ~/.zsh/dirs.zsh
+. ~/.zsh/functions.zsh
+. ~/.zsh/vcsinfo.zsh
+. ~/.zsh/prompt.zsh
+. ~/.zsh/startup.zsh
 #. ~/Development/drush-zsh/drush.complete.zsh
 
 # rbenv
+if [ -d ~/.rbenv/bin ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+fi
 if hash rbenv 2> /dev/null; then
   eval "$(rbenv init -)"
 fi
@@ -91,6 +93,6 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -U compinit
 compinit -i
 
-export PATH=/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:$HOME/.composer/vendor/bin
+#export PATH=/usr/local/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH:$HOME/.composer/vendor/bin
 
 #eval $(keychain --eval --agents ssh -Q --quiet id_rsa 2011_ryan_id_rsa)

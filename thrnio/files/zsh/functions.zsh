@@ -76,7 +76,7 @@ function sphp {
 }
 
 function diralias {
-  echo "hash -d $1=$(pwd)" >> $DOTSDIR/lib/zsh/dirs.local
+  echo "hash -d $1=$(pwd)" >> ~/.zsh/dirs.local
 }
 
 function venv {

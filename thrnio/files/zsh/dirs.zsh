@@ -3,6 +3,6 @@
 hash -d dwn=~/Downloads
 hash -d dev=~/Development
 
-if [ -f $DOTSDIR/lib/zsh/dirs.local ]; then
-  . $DOTSDIR/lib/zsh/dirs.local
+if [ -f ~/.zsh/dirs.local ]; then
+  . ~/.zsh/dirs.local
 fi
