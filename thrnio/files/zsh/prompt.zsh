@@ -21,12 +21,14 @@ function prompt_drush {
   fi
 }
 
+function
+
 function precmd {
   vcs_info
 }
 
 PROMPT='
-$(prompt_name)$vcs_info_msg_0_$(prompt_drush)$(prompt_venv)
+$(prompt_name)%{$fg[blue]%}[%{$fg[magenta]%}%?%{$fg[blue]%}] $vcs_info_msg_0_$(prompt_drush)$(prompt_venv)
  %{$fg[blue]%}$(prompt_char)%{$terminfo[sgr0]%} '
 
 RPROMPT='%{$fg[blue]%} at %{$fg[yellow]%}%~%{$fg[blue]%}%{$terminfo[sgr0]%}'
