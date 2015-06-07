@@ -55,7 +55,7 @@ class thrnio(
     source  => 'puppet:///modules/thrnio/zsh',
   }
 
-  ['thrnio-buffers', 'thrnio-mu'].each |$layer| {
+  ['thrnio-buffers', 'thrnio-mu', 'thrnio-venv'].each |$layer| {
     file { "${homedir}/.emacs.d/private/${layer}":
       recurse => remote,
       source  => "puppet:///modules/thrnio/spacemacs-layers/${layer}",

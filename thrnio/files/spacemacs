@@ -27,6 +27,10 @@
      themes-megapack
      thrnio-buffers
      thrnio-mu
+     (thrnio-venv :variables projectile-venv-alist
+                  '(("puppetlabs-sysadmin-tools" . "/home/rw/virtualenvs/tools")
+                    ("py-plops" . "/home/rw/virtualenvs/plops")
+                    ("parophrys" . "/home/rw/virtualenvs/parophrys")))
      syntax-checking
      )
    ;; List of additional packages that will be installed wihout being
