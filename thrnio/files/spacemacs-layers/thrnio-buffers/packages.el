@@ -14,7 +14,7 @@
 ;; which require an initialization must be listed explicitly in the list.
 (setq thrnio-buffers-packages
     '(
-      ;; package thrnio-bufferss go here
+      projectile
       ))
 
 ;; List of packages to exclude.

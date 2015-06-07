@@ -1,12 +1,13 @@
 (defun rename-buffer-to-projectile ()
   "Add the path within the projectile project to the buffer name"
   (interactive)
-  (let ((newname (get-proposed-projectile-buffer-name "" ""))
-        (when newname
-          (rename-buffer newname)))))
+  (let ((newname (get-proposed-projectile-buffer-name "" "")))
+    (when newname
+      (rename-buffer newname))))
 
 (defun get-proposed-projectile-buffer-name (base dirname &optional depth)
-  (when (and (projectile-project-p)
+  (when (and (fboundp 'projectile-project-p)
+             (projectile-project-p)
              (projectile-project-buffer-p (current-buffer)
                                           (projectile-project-root))
              (buffer-file-name))
