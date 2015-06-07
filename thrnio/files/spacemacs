@@ -21,10 +21,10 @@
      (git :variables
           git-gutter-use-fringe t)
      markdown
-     moe-theme
      org
      python
      puppet
+     themes-megapack
      thrnio-buffers
      thrnio-mu
      syntax-checking
