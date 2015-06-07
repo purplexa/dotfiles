@@ -55,6 +55,13 @@ class thrnio(
     source  => 'puppet:///modules/thrnio/zsh',
   }
 
+  ['moe-theme', 'thrnio-buffers', 'thrnio-mu'].each |$layer| {
+    file { "${homedir}/.emacs.d/private/${layer}":
+      recurse => remote,
+      source  => "puppet:///modules/thrnio/spacemacs-layers/${layer}",
+    }
+  }
+
   file { "${homedir}/Code/puppetlabs":
     ensure => directory,
   }
@@ -93,13 +100,13 @@ class thrnio(
     source => 'puppet:///modules/thrnio/rwdvp.xkb',
   }
 
-  augeas { 'add custom keyboard to evdev.xml':
-    incl    => '/usr/share/X11/xkb/rules/evdev.xml',
-    context => '/files/usr/share/X11/xkb/rules/evdev.xml',
-    lens    => 'Xml.lns',
-    changes => [ 'set /xkbConfigRegistry/layoutList/layout[configItem/name[#text=rwdvp]]/configItem/name/#text rwdvp',
-                 'set /xkbConfigRegistry/layoutList/layout[configItem/name[#text=rwdvp]]/configItem/shortDescription/#text rw',
-                 'set /xkbConfigRegistry/layoutList/layout[configItem/name[#text=rwdvp]]/configItem/description/#text "English (Ryan\'s)"',
-                 'set /xkbConfigRegistry/layoutList/layout[configItem/name[#text=rwdvp]]/configItem/languageList/iso639Id/#text eng',],
-  }
+  # augeas { 'add custom keyboard to evdev.xml':
+  #   incl    => '/usr/share/X11/xkb/rules/evdev.xml',
+  #   context => '/files/usr/share/X11/xkb/rules/evdev.xml',
+  #   lens    => 'Xml.lns',
+  #   changes => [ 'set /xkbConfigRegistry/layoutList/layout[configItem/name[#text=rwdvp]]/configItem/name/#text rwdvp',
+  #                'set /xkbConfigRegistry/layoutList/layout[configItem/name[#text=rwdvp]]/configItem/shortDescription/#text rw',
+  #                'set /xkbConfigRegistry/layoutList/layout[configItem/name[#text=rwdvp]]/configItem/description/#text "English (Ryan\'s)"',
+  #                'set /xkbConfigRegistry/layoutList/layout[configItem/name[#text=rwdvp]]/configItem/languageList/iso639Id/#text eng',],
+  # }
 }

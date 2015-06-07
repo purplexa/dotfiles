@@ -25,7 +25,8 @@
      org
      python
      puppet
-     thrnio-puppet
+     thrnio-buffers
+     thrnio-mu
      syntax-checking
      )
    ;; List of additional packages that will be installed wihout being

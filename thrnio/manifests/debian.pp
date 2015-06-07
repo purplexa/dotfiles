@@ -52,48 +52,48 @@ class thrnio::debian {
 
   include ::apt
 
-  apt::source { 'spotify':
-    location   => 'http://repository.spotify.com',
-    release    => 'stable',
-    repos      => 'non-free',
-    key        => {
-      'id'     => 'E22CBE98B5575C1857671254082CCEDF94558F59',
-      'server' => 'keyserver.ubuntu.com',
-    },
-    include    => {
-      'src' => false,
-      'deb' => true,
-    },
-  }
+  # apt::source { 'spotify':
+  #   location   => 'http://repository.spotify.com',
+  #   release    => 'stable',
+  #   repos      => 'non-free',
+  #   key        => {
+  #     id     => 'E22CBE98B5575C1857671254082CCEDF94558F59',
+  #     server => 'keyserver.ubuntu.com',
+  #   },
+  #   include    => {
+  #     src => false,
+  #     deb => true,
+  #   },
+  # }
 
-  package { 'spotify-client':
-    ensure  => present,
-    require => Apt::Source['spotify'],
-  }
+  # package { 'spotify-client':
+  #   ensure  => present,
+  #   require => Apt::Source['spotify'],
+  # }
 
-  #apt::source { 'atlassian-hipchat':
-    #location    => 'http://downloads.hipchat.com/linux/apt',
-    #release     => 'stable',
-    #repos       => 'main',
-    #include_src => false,
-  #}
+  # apt::source { 'atlassian-hipchat':
+  #   location    => 'http://downloads.hipchat.com/linux/apt',
+  #   release     => 'stable',
+  #   repos       => 'main',
+  #   include_src => false,
+  # }
 
-  #package { 'hipchat':
-    #ensure  => present,
-    #require => Apt::Source['atlassian-hipchat'],
-  #}
+  # package { 'hipchat':
+  #   ensure  => present,
+  #   require => Apt::Source['atlassian-hipchat'],
+  # }
 
-  #apt::source { 'bluejeans':
-    #location    => 'http://swdl.bluejeans.com/repos/bluejeans/x86_64/release/debs',
-    #release     => 'stable',
-    #repos       => 'main',
-    #include_src => false,
-  #}
+  # apt::source { 'bluejeans':
+  #   location    => 'http://swdl.bluejeans.com/repos/bluejeans/x86_64/release/debs',
+  #   release     => 'stable',
+  #   repos       => 'main',
+  #   include_src => false,
+  # }
 
-  #package { 'bjnplugin':
-    #ensure  => present,
-    #require => Apt::Source['bluejeans'],
-  #}
+  # package { 'bjnplugin':
+  #   ensure  => present,
+  #   require => Apt::Source['bluejeans'],
+  # }
 
   file { '/usr/share/fonts/opentype/source-code-pro':
     ensure  => directory,
