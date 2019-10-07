@@ -1,7 +1,7 @@
 # thrnio / dotfiles
 
 This repository contains the personal home directory configuration for
-Ryan Whitehurst.
+Lexa Whitehurst.
 
 ## Installation
 
